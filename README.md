@@ -58,3 +58,4 @@ $ npm prod
 或者你也可以跟我一样。修改`cptpl`配置文件来解决问题。
 ![img1](app/Static/images/img1.png)
 ![img2](app/Static/images/img2.png)
+
