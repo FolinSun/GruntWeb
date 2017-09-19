@@ -1,0 +1,56 @@
+/**
+ *  _function-clearFix_     ............   清除浮动
+ *  _function-container_    ............  居中宽度
+ *  _ellipsis-function_     ............  居中宽度
+ */
+
+
+
+
+
+/*------------------------------------*\
+        _function-clearFix_
+\*------------------------------------*/
+.function-clearFix(){
+    &:before,
+    &:after{
+        content: " ";
+        display: table;
+    }
+    &:after{
+        clear: both;
+    }
+    *zoom: 1;
+}
+.function-clear(@num:1px){
+    height: @num;
+    overflow: hidden;
+    clear: both;
+    line-height: @num;
+}
+
+
+
+
+/*------------------------------------*\
+        _function-container_
+\*------------------------------------*/
+.function-container(@width:1100px){
+    width: @width;
+    margin: 0 auto;
+    clear: both;
+}
+
+
+
+
+
+/*------------------------------------*\
+        _ellipsis-function_
+\*------------------------------------*/
+.function-ellipsis(){
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+}

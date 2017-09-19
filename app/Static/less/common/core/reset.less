@@ -1,0 +1,185 @@
+/**
+ *                 设置统一重置样式
+ *  _body_                ............   设置body
+ *  _box-sizing_          ............   开启box-sizing支持
+ *  _input_               ............   设置input button select textarea
+ *  _img_                 ............   设置img
+ *  _a_                   ............   设置 A 链接
+ *  _h1-ul-ol-p_          ............   重置h1..ul ol自带样式
+ */
+
+
+@import "variable.less";
+
+
+/*------------------------------------*\
+                _body_
+\*------------------------------------*/
+@bodyFontSize         :   14px;
+@bodyFontFamily       :   'microsoft yahei', 'helvetica neue', 'hiragino sans gb', 'stheiti', '\5FAE\8F6F\96C5\9ED1', 'tahoma';
+@bodyLineHeight       :   1.5;
+@bodyFontColor        :   #999999;
+@bodyBackgroundColor  :   #ffffff;
+
+body{
+    font: @bodyFontSize / @bodyLineHeight @bodyFontFamily;
+    color: @bodyFontColor;
+    background-color: @bodyBackgroundColor;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizespeed;
+    margin: 0;
+    & when(@tapHighlightColor = false){
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+}
+
+
+
+
+
+/*------------------------------------*\
+            _box-sizing_
+\*------------------------------------*/
+* & when(@openBox = true){
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    /*
+        https://developer.mozilla.org/zh-CN/docs/Web/CSS/box-sizing
+        浏览器厂商已移除 -webkit 前缀
+        -webkit-box-sizing: border-box;
+    */
+}
+
+
+
+
+
+/*------------------------------------*\
+                _input_
+\*------------------------------------*/
+@inputBackground    :   #ffffff;
+input,
+button,
+select,
+textarea {
+    font: @bodyFontSize / @bodyLineHeight @bodyFontFamily;
+    outline: none;
+}
+button, input[type="reset"], input[type="button"], input[type="submit"] {
+    line-height: normal !important;
+}
+button::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner {
+    border:none;
+    padding:0;
+}
+input{
+    background: @inputBackground;
+}
+
+
+
+
+/*------------------------------------*\
+                _img_
+\*------------------------------------*/
+img {
+    vertical-align: middle;
+}
+/*
+img:not([src$=".svg"]) {
+    height: auto;
+}
+*/
+
+
+
+
+
+/*------------------------------------*\
+                  _a_
+\*------------------------------------*/
+@aLink      :   #72c025;
+@aHover     :   #23527c;
+@aActive    :   @aHover;
+@aVisited   :   @aHover;
+@aFocus     :   @aHover;
+@tranNum    :   .3s;
+@textDecorationNone     :   none;
+@aTransition            :   all @tranNum ease-in;
+
+a {
+    color: @aLink;
+    text-decoration: @textDecorationNone;
+    outline: @textDecorationNone;
+
+    &:hover, &:focus, &:active {
+        color: saturate(@aLink, 10%);
+        & when(@linkHoverTransition = true){
+            -moz-transition: all @tranNum ease-in;
+            -webkit-transition: all @tranNum ease-in;
+            -o-transition: all @tranNum ease-in;
+            transition: all @tranNum ease-in;
+        }
+    }
+}
+
+
+
+
+
+/*------------------------------------*\
+            _h1-ul-ol-p_
+\*------------------------------------*/
+@hColor         : #444444;
+@h1Size         : 32px;
+@h2Size         : 28px;
+@h3Size         : 24px;
+@h4Size         : 20px;
+@h5Size         : 18px;
+@h6Size         : 16px;
+@hLineHeight    : 1.1;
+
+ul,
+li,
+ol,
+dl,
+dd,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    line-height: @hLineHeight;
+    color: @hColor;
+}
+h1{
+    font-size: @h1Size;
+}
+h2{
+    font-size: @h2Size;
+}
+h3{
+    font-size: @h3Size;
+}
+h4{
+    font-size: @h4Size;
+}
+h5{
+    font-size: @h5Size;
+}
+h6{
+    font-size: @h6Size;
+}

@@ -1,0 +1,130 @@
+/**
+ *                    功能方法
+ *  _f-clearFix_        ............   清除浮动
+ *  _text-transform_    ............   英文转换大小写
+ *  _f-left_            ............   左浮动
+ *  _f-right_           ............   右浮动
+ *  _f-dhid_            ............   隐藏
+ *  _f-vhid_            ............   隐藏
+ *  _f-text-dec_        ............   文字居中方式 left center right
+ *  _f-word-wrap_       ............   文字断行
+ *  _f-ellipsis_       ............   文字溢出省略号
+ */
+@import "function.less";
+
+
+
+
+/*------------------------------------*\
+            _f-clearFix_
+\*------------------------------------*/
+.f-clearFix{
+    .function-clearFix();
+}
+.f-clear{
+    .function-clear();
+}
+
+
+
+
+
+/*------------------------------------*\
+          _text-transform_
+\*------------------------------------*/
+.f-text-capitalize{
+    text-transform: capitalize;
+}
+.f-text-uppercase{
+    text-transform: uppercase;
+}
+.f-text-lowercase{
+    text-transform: lowercase;
+}
+
+
+
+
+
+/*------------------------------------*\
+              _f-left_
+\*------------------------------------*/
+.f-left{
+    float: left;
+}
+
+
+
+
+
+/*------------------------------------*\
+              _f-right_
+\*------------------------------------*/
+.f-right{
+    float: right;
+}
+
+
+
+
+
+/*------------------------------------*\
+              _f-dhid_
+\*------------------------------------*/
+.f-dhid{
+    display: none!important;
+}
+
+
+
+
+
+/*------------------------------------*\
+              _f-vhid_
+\*------------------------------------*/
+.f-vhid{
+    visibility: hidden;
+}
+
+
+
+
+
+/*------------------------------------*\
+              _f-text-dec_
+\*------------------------------------*/
+.f-text-left{
+    text-align: left;
+}
+.f-text-center{
+    text-align: center;
+}
+.f-text-right{
+    text-align: right;
+}
+
+
+
+
+
+/*------------------------------------*\
+            _f-word-wrap_
+\*------------------------------------*/
+.f-wwbw{
+    word-wrap: break-word;
+}
+// 内容强制断行
+.f-wwba{
+    word-wrap: ~'break-all';
+}
+
+
+
+
+
+/*------------------------------------*\
+            _f-ellipsis_
+\*------------------------------------*/
+.f-ellipsis{
+    .function-ellipsis();
+}

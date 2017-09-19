@@ -1,0 +1,282 @@
+/**
+ *             common共用组建
+ *  _flexBox_               ............   弹性盒子混合兼容
+ *  _flex_                  ............   设置分配空间
+ *  _flexOrder_             ............   设置显示排序
+ *  _flexDirection_         ............   设置显示方向
+ *  _flexJustify_           ............   横向缩放对齐方式
+ *  _flexAlignItem_         ............   类似 vertical-align 效果
+ *  _mobileRem_             ............   px转换rem
+ *  _mobilePx-function_     ............   适配各个机型下面px
+ */
+/*.flexbox{
+    .flexBox-function();
+    .flexDirection-function();
+    .flexJustify-function(center);
+    .flexAlignItem-function();
+    > div{
+        //.flex-function(1);
+        .flexAlignItem-function(center);
+        background: red;
+        margin-right: 1px;
+    }
+
+}*/
+
+
+
+
+
+
+/*------------------------------------*\
+               _flexBox_
+\*------------------------------------*/
+.flexBox-function(@value:flex){
+    & when(@value = flex){
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+    }
+    & when(@value = inline-flex){
+        display: ~'-webkit-inline-box';
+        display: -webkit-inline-flex;
+        display: -moz-inline-stack;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+    }
+
+}
+
+
+
+
+
+/*------------------------------------*\
+                _flex_
+
+兼容模式：
+@value: 1
+
+下面写法在ios6下面不兼容
+tip: 1 200px || 1 1 auto ||  0 0 auto
+\*------------------------------------*/
+.flex-function(@value){
+    -webkit-box-flex: @value;
+    -webkit-flex: @value;
+    -moz-box-flex: @value;
+    -ms-flex: @value;
+    flex: @value;
+    width: 100%;
+}
+
+
+
+
+
+/*------------------------------------*\
+             _flexOrder_
+
+@value: -1 --- *
+\*------------------------------------*/
+.flexOrder-function(@value){
+    -webkit-box-ordinal-group: @value;
+    -moz-box-ordinal-group: @value;
+    -ms-flex-order: @value;
+    -webkit-order: @value;
+    order: @value;
+}
+
+
+
+
+
+/*------------------------------------*\
+            _flexDirection_
+
+@value: row || row-reverse || column
+\*------------------------------------*/
+.flexDirection-function(@value: row){
+    & when(@value = row){
+        -webkit-box-orient: horizontal;
+        -moz-box-orient: horizontal;
+        -ms-box-orient: horizontal;
+        -o-box-orient: horizontal;
+        box-orient: horizontal;
+    }
+    & when(@value = row-reverse){
+        -webkit-box-direction: reverse;
+        -moz-box-direction: reverse;
+        -ms-box-direction: reverse;
+        -o-box-direction: reverse;
+        box-direction: reverse;
+    }
+    & when(@value = column){
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        -ms-box-orient: vertical;
+        -o-box-orient: vertical;
+        box-orient: vertical;
+    }
+    & when(@value = column-reverse){
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        -ms-box-orient: vertical;
+        -o-box-orient: vertical;
+        box-orient: vertical;
+
+        -webkit-box-direction: reverse;
+        -moz-box-direction: reverse;
+        -ms-box-direction: reverse;
+        -o-box-direction: reverse;
+        box-direction: reverse;
+    }
+    -webkit-flex-direction: @value;
+    -moz-flex-direction: @value;
+    -ms-flex-direction: @value;
+    -o-flex-direction: @value;
+    flex-direction: @value;
+}
+
+
+
+
+
+/*------------------------------------*\
+            _flexJustify_
+
+@value: flex-start || flex-end || center || space-between
+\*------------------------------------*/
+.flexJustify-function(@value: flex-start){
+    & when(@value = flex-start){
+        -ms-flex-pack:start;
+        -webkit-box-pack: start;
+        -moz-box-pack: start;
+        -ms-box-pack: start;
+        -o-box-pack: start;
+        box-pack: start;
+    }
+    & when(@value = flex-end){
+        -ms-flex-pack:end;
+        -webkit-box-pack: end;
+        -moz-box-pack: end;
+        -ms-box-pack: end;
+        -o-box-pack: end;
+        box-pack: end;
+    }
+    & when(@value = center){
+        -ms-flex-pack:center;
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        -ms-box-pack: center;
+        -o-box-pack: center;
+        box-pack: center;
+    }
+    & when(@value = space-between){
+        -ms-flex-pack:justify;
+        -webkit-box-pack: justify;
+        -moz-box-pack: justify;
+        -ms-box-pack: justify;
+        -o-box-pack: justify;
+        box-pack: justify;
+    }
+    -webkit-justify-content: @value;
+    -moz-justify-content: @value;
+    -ms-justify-content: @value;
+    -o-justify-content: @value;
+    justify-content: @value;
+}
+
+
+
+
+
+/*------------------------------------*\
+            _flexAlignItem_
+
+@value: flex-start || flex-end || center || stretch
+\*------------------------------------*/
+.flexAlignItem-function(@value: flex-start){
+    & when(@value = flex-start){
+        -ms-flex-align: start;
+        -webkit-box-align: start;
+        -moz-box-align: start;
+        -ms-box-align: start;
+        -o-box-align: start;
+        box-align: start;
+    }
+    & when(@value = flex-end){
+        -ms-flex-align: end;
+        -webkit-box-align: end;
+        -moz-box-align: end;
+        -ms-box-align: end;
+        -o-box-align: end;
+        box-align: end;
+    }
+    & when(@value = center){
+        -ms-flex-align: center;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        -ms-box-align: center;
+        -o-box-align: center;
+        box-align: center;
+    }
+    & when(@value = stretch){
+        -ms-flex-align: stretch;
+        -webkit-box-align: stretch;
+        -moz-box-align: stretch;
+        -ms-box-align: stretch;
+        -o-box-align: stretch;
+        box-align: stretch;
+    }
+    -webkit-align-items: @value;
+    -moz-align-items: @value;
+    -ms-align-items: @value;
+    -o-align-items: @value;
+    align-items: @value;
+}
+
+
+
+
+
+/*------------------------------------*\
+            _mobileRem_
+
+iphone6:    375px * 2 / 10 = 75px
+\*------------------------------------*/
+.mobileRem-function(@name, @px){
+    @{name} :   @px / 75 * 1rem;
+}
+
+
+
+
+
+/*------------------------------------*\
+            _mobilePx-function_
+
+tip:    开启高清适配px转换
+\*------------------------------------*/
+.mobilePx-function(@name, @px){
+    @{name}: round(@px / 2) * 1px;
+    [data-dpr="2"] & {
+        @{name}: @px * 1px;
+    }
+    // for mx3
+    [data-dpr="2.5"] & {
+        @{name}: round(@px * 2.5 / 2) * 1px;
+    }
+    // for 小米note
+    [data-dpr="2.75"] & {
+        @{name}: round(@px * 2.75 / 2) * 1px;
+    }
+    [data-dpr="3"] & {
+        @{name}: round(@px / 3 * 5) * 1px
+    }
+    // for 三星note4
+    [data-dpr="4"] & {
+        @{name}: @px * 2px;
+    }
+}

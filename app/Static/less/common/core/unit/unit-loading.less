@@ -1,0 +1,28 @@
+/**
+ *                  loading 集合
+ *  unit-input                ............   初始input
+ */
+@import "../variable.less";
+
+
+
+
+
+@unit-loading-bg      :   '@{pathCommonImgs}/loading/load.gif';
+.unit-loading(@name : u-loading){
+    .@{name}{
+        position: absolute;
+        z-index: 10000000;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("@{unit-loading-bg}") no-repeat center center #000;
+        opacity: .6;
+    }
+}
+.unit-loading-bg(@name : u-loading-bg){
+    .@{name}{
+        background: url("@{unit-loading-bg}") no-repeat center center #000;
+    }
+}

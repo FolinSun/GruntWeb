@@ -1,0 +1,18 @@
+@import "core/variable.less";
+
+/*------------------------------------*\
+                _entry_
+\*------------------------------------*/
+& when(@openSimpleMobile = 1){
+    @import "./core/reset/normalize-ie6.less";
+}
+& when(@openSimpleMobile = 2){
+    @import "./core/reset/normalize.less";
+}
+
+
+
+@import "core/reset.less";
+@import "core/unit.less";
+@import 'core/base.less';
+@import "core/function.less";

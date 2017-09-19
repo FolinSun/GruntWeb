@@ -1,0 +1,83 @@
+/**
+ *                  input 集合
+ *  unit-input                ............   初始input
+ */
+@import "../function.less";
+@import "../variable.less";
+
+
+
+
+
+/*------------------------------------*\
+            _unit-input_
+
+<input class='u-input' />
+
+IE：
+<div class='u-input-ie'>
+    <span></span>
+    <input />
+</div>
+
+使用IE下方写法为了兼容placeHolder
+\*------------------------------------*/
+@unit-input-border      :   1px solid #eee;
+@unit-input-width       :   240px;
+@unit-input-background  :   #fff;
+@unit-input-padding     :   4px 10px;
+@unit-input-box-shadow  :   inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+@unit-input-transition  :   border-color .3s ease-in-out, box-shadow .3s ease-in-out;
+
+.unit-input(@isHover:true, @name:u-input){
+    .@{name}{
+        border: @unit-input-border;
+        background: @unit-input-background;
+        .function-border-radius(3px);
+        display: inline-block;
+        vertical-align: middle;
+        padding: @unit-input-padding;
+        width: @unit-input-width;
+        & when(@isHover = true){
+            &:focus{
+                border-color: #66afe9;
+                .function-box-shadow( @unit-input-box-shadow );
+                .function-transition( @unit-input-transition );
+            }
+        }
+    }
+
+    & when(@openSimpleMobile = 1){
+        .@{name}-ie{
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            span{
+                position: absolute;
+                z-index: 2;
+                display: inline-block;
+                padding: @unit-input-padding;
+                cursor: text;
+                cursor: hand;
+            }
+            input{
+                border: @unit-input-border;
+                background: @unit-input-background;
+                .function-border-radius(3px);
+                display: inline-block;
+                vertical-align: middle;
+                padding: @unit-input-padding;
+                width: @unit-input-width;
+                position: relative;
+                z-index: 1;
+                & when(@isHover = true){
+                    &:focus{
+                        border-color: #66afe9;
+                        .function-box-shadow( @unit-input-box-shadow );
+                        .function-transition( @unit-input-transition );
+                    }
+                }
+            }
+        }
+    }
+}

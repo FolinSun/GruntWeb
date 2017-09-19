@@ -1,0 +1,86 @@
+/**
+ *                    css3效果文件
+ *  _function-transition_       ............        动画属性
+ *  _function-box-shadow_       ............        阴影
+ *  _function-border-radius_    ............        圆角
+ *  _function-linear-gradient_  ............        背景渐变
+ */
+
+
+
+
+
+/*------------------------------------*\
+            _function-transition_
+
+ease        : 逐渐变慢
+linear      : 匀速
+ease-in     : 加速
+ease-out    : 减速
+ease-in-out : 加速然后减速
+
+@value  :   属性  动画时间  动画方式
+\*------------------------------------*/
+.function-transition(@value: all .2s ease-out){
+    -webkit-transition: @value;
+    -moz-transition: @value;
+    -o-transition: @value;
+    transition: @value;
+}
+
+
+
+
+
+/*------------------------------------*\
+            _function-box-shadow_
+@value  :   投影方式    X轴偏移量   Y轴偏移量   阴影模糊半径  阴影扩展半径  阴影颜色
+\*------------------------------------*/
+.function-box-shadow(@value: inset 0 1px 1px rgba(0,0,0,.075)){
+    -moz-box-shadow:  @value;
+    -webkit-box-shadow: @value;
+    box-shadow: @value;
+}
+
+
+
+
+
+/*------------------------------------*\
+        _function-border-radius_
+\*------------------------------------*/
+.function-border-radius(@radius: 5px){
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+
+
+
+
+
+/*------------------------------------*\
+        _function-linear-gradient_
+
+http://www.colorzilla.com/gradient-editor/
+tip : 为兼容IE，此处不做判断，确定只在现代浏览器版本中使用，自行传参
+\*------------------------------------*/
+.function-linear-gradient(@form:#FCFCFC, @to:#F1F1F1, @direction:left){
+    background: @form;
+    & when( @direction = left ){
+        background: -moz-linear-gradient(left, @form, @to);
+        background: -o-linear-gradient(left, @form, @to);
+        background: -ms-linear-gradient(left, @form, @to);
+        background: -webkit-linear-gradient(left, @form, @to);
+        background: -webkit-gradient(linear, 0% 0% , 100% 0%, color-stop(100%, @form), color-stop(0%, @to));
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='@{form}', endColorstr='@{to}');
+    }
+    & when( @direction = top ){
+        background: -moz-linear-gradient(top, @form, @to);
+        background: -o-linear-gradient(top, @form, @to);
+        background: -ms-linear-gradient(top, @form, @to);
+        background: -webkit-linear-gradient(top, @form, @to);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @form), color-stop(100%, @to));
+        filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='@{form}', endColorstr='@{to}');
+    }
+}

@@ -1,0 +1,21 @@
+/**
+ *                    循环方法
+ *  _function-loop_ ............   循环
+ */
+
+
+
+
+
+/*------------------------------------*\
+            _function-loop_
+\*------------------------------------*/
+.function-loop(@num:1, @key:1, @rem) when(@num >= @key){
+    & when(@rem){
+
+    }
+    .index_txt@{num}{
+        background: url("imgs/l-@{num}.png") no-repeat center @rem;
+    }
+    .function-loop(@num - 1, @key, @rem);
+}
